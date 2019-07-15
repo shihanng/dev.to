@@ -1,7 +1,7 @@
 ---
 title: Looking into PostgreSQL DB's tables of your Development Environment
 published: false
-description: "A post showing how to access and visualize PostgreSQL database hosted in Docker container."
+description: 'A post showing how to access and visualize PostgreSQL database hosted in Docker container.'
 tags: Docker, PostgreSQL
 cover_image: ./assets/cover.png
 ---
@@ -43,7 +43,7 @@ If you want to checkout the web application that is running on your host, visit 
 
 # Accessing the Database
 
-Here we will show how to access to the development database using two different tools: 
+Here we will show how to access to the development database using two different tools:
 
 1. [pgcli](https://www.pgcli.com/),
 2. [SchemaSpy](https://github.com/schemaspy/schemaspy) for a more visualized approach.
@@ -55,6 +55,7 @@ $ export DB_USER=postgres
 $ export DB_PASSWORD=foobar123
 $ export DB_NAME=docker-rails_development
 ```
+
 ## pgcli
 
 Install `pgcli` based on the instructions in [official documentation](https://www.pgcli.com/install). Based on the information below we want to connect to the database (`docker-rails_db_1`) on port `5432`.
@@ -86,7 +87,9 @@ $ docker inspect docker-rails_db_1 | grep IPAddress
             "IPAddress": "",
                     "IPAddress": "172.24.0.4",
 ```
+
 Using the IP address above, we can access the database via
+
 ```console
 $ pgcli -h 172.24.0.4 -p 5432 -U "${DB_USER}" -d "${DB_NAME}"
 Server: PostgreSQL 11.4
