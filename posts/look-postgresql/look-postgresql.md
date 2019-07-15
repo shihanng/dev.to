@@ -1,6 +1,6 @@
 ---
 title: Looking into PostgreSQL DB's tables of your Development Environment
-published: false
+published: true
 description: 'A post showing how to access and visualize PostgreSQL database hosted in Docker container.'
 tags: Docker, PostgreSQL
 ---
