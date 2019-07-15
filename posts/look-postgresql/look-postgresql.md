@@ -41,22 +41,13 @@ If you want to checkout the web application that is running on your host, visit 
 
 ![The demo Docker-Rails app](./assets/docker_rails.png)
 
-
-# Start
-$ docker-compose up -d
-
-
+```
 pgcli -h 172.24.0.4 -p 5432 -U postgres -d docker-rails_development
-
 docker inspect docker-rails_db_1 | grep IPAddress
+```
 
 clean up
-
 
 # Found a typo?
 
 If you've found a typo, a sentence that could be improved or anything else that should be updated on this blog post, you can access it through a git repository and make a pull request. Instead of posting a comment, please go directly to <REPO URL> and open a new pull request with your changes.
-
-
-
-
