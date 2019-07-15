@@ -8,7 +8,7 @@ script:
   - yarn run prettier:check
   - yarn run embedme:check
 after_success:
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then DEV_TO_GIT_TOKEN=$DEV_TO_GIT_TOKEN yarn run dev-to-git; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ]; then DEV_TO_GIT_TOKEN=$DEV_TO_GIT_TOKEN yarn run dev-to-git; fi
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
