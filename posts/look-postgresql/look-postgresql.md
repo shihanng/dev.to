@@ -3,7 +3,6 @@ title: Looking into PostgreSQL DB's tables of your Development Environment
 published: false
 description: 'A post showing how to access and visualize PostgreSQL database hosted in Docker container.'
 tags: Docker, PostgreSQL
-cover_image: ./assets/cover.png
 ---
 
 You just joined an established project and have been given access to the source code. Sometimes we find that it is easier to understand the structure of the project by looking into the database tables and the relations between them. Recently I found myself in this situation with a project that can be built **locally** with [Docker Compose](https://docs.docker.com/compose/). This is a note about what I did to glimpse in the project's tables.
