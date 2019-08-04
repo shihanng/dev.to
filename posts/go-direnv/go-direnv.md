@@ -5,10 +5,13 @@ description: 'How to simply manage Go versions for multiple projects with direnv
 tags: Go, shell, direnv
 ---
 
-Recently I've joined a project that require previous version of Go.
+Recently I've joined a project that requires previous version of Go.
 Since I have the latest version already installed on my machine
 I was looking for a way to manage different versions of Go in a single machine.
-In Python there is pyenv, Ruby with rbenv.
+In Python world, there is a very well-known version management called
+[pyenv](https://github.com/pyenv/pyenv) which is highly inspired
+by the Ruby's one: [rbenv](https://github.com/rbenv/rbenv).
+
 In our Go slack channel, someone also mentioned about gvm as equivalent
 Build your own?
 
@@ -42,6 +45,8 @@ Create a new Go project in GOPATH
 
 create main.go
 
+export GOROOT=/Users/nzk190629a/sdk/go1.10.8
+PATH_add /Users/nzk190629a/sdk/go1.10.8/bin
 
 compile
 
