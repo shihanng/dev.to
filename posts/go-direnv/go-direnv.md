@@ -12,8 +12,12 @@ In Python world, there is a very well-known version management called
 [pyenv](https://github.com/pyenv/pyenv) which is highly inspired
 by the Ruby's one: [rbenv](https://github.com/rbenv/rbenv).
 
-In our Go slack channel, someone also mentioned about gvm as equivalent
-Build your own?
+A similar tool also available in Go known as [gvm](https://github.com/moovweb/gvm)
+with additional features such as managing different locations of `GOPATH`.
+
+https://medium.com/@vCabbage/go-installing-multiple-go-versions-from-source-db5573067c
+
+balance simlicity and usability
 
 
 To uninstall a downloaded version, just remove its GOROOT directory and the goX.Y.Z binary.
