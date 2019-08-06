@@ -12,10 +12,18 @@ In Python world, there is a very well-known version management called
 [pyenv](https://github.com/pyenv/pyenv) which is highly inspired
 by the Ruby's one: [rbenv](https://github.com/rbenv/rbenv).
 
+As for Go, it seems that there is no authoritative way to manage the version of Go.
+Probably it is not a big issue as many would just upgrade to the latest version of the language
+as it essentially [promises that new minor version of 1.X should not break the older ones](https://golang.org/doc/go1compat).
+Yet, through a very brief Googling, I found that there are three main approaches
+for this problem:
+
+1. Installing each version of Go from source. This [article by Kale Blankenship](https://medium.com/@vCabbage/go-installing-multiple-go-versions-from-source-db5573067c)
+   describe the steps in details.
+
 A similar tool also available in Go known as [gvm](https://github.com/moovweb/gvm)
 with additional features such as managing different locations of `GOPATH`.
 
-https://medium.com/@vCabbage/go-installing-multiple-go-versions-from-source-db5573067c
 
 balance simlicity and usability
 
