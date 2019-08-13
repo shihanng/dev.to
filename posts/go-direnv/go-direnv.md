@@ -39,20 +39,52 @@ $ go1.8.7 download
 
 Once the download is complete, we can compile our source code with `v1.8.7` using
 ```sh
+$ go1.8.7 version
+go version go1.8.7 darwin/amd64
 $ go1.8.7 build
 ```
 
+Uninstalling can be done by removing the `GOROOT` directory:
 
-To uninstall a downloaded version, just remove its GOROOT directory and the goX.Y.Z binary.
+```sh
+$ rm -rf "$(go1.8.7 env GOROOT)"
+```
+
+## Using `goX.Y.Z` as `go`
+
+Often in a project we have some kind of build scripts of Makefiles which will
+call `go` to build our Go binary.
+Therefore it would be very convenient if we can use the executable `go1.8.7` as `go`
+for a specific directory/project.
+This is where [**direnv**](https://github.com/direnv/direnv) comes into play.
+
+> direnv is an environment switcher for the shell. It knows how to hook into
+> bash, zsh, tcsh, fish shell and elvish to load or unload environment
+> variables depending on the current directory
+
+For demostration purposes, we will create a new project in the `GOPATH` as following:
+
+```sh
+$ export GOPATH="$(go1.8.7 env GOPATH)"
+$ mkdir -p "${GOPATH}/src/github.com/user/hello"
+$ cd "${GOPATH}/src/github.com/user/hello"
+$ cat >main.go <<EOL
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, world.")
+}
+EOL
+```
 
 
 
-direnv settings
-what is
-
-Create a new Go project in GOPATH
-
-create main.go
+Clean up
+```sh
+rm -rf  "${GOPATH}/src/github.com/user/hello"
+```
 
 export GOROOT=/Users/nzk190629a/sdk/go1.10.8
 PATH_add /Users/nzk190629a/sdk/go1.10.8/bin
