@@ -2,5 +2,9 @@
   {
     "id": 140606,
     "relativePathToArticle": "./posts/look-postgresql/look-postgresql.md"
+  },
+  {
+    "id": 156322,
+    "relativePathToArticle": "./posts/go-direnv/go-direnv.md"
   }
 ]

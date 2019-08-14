@@ -53,7 +53,7 @@ $ rm -rf "$(go1.8.7 env GOROOT)"
 ## Using `goX.Y.Z` as `go`
 
 Often in a project we have some kind of build scripts of Makefiles which will
-call `go` to build our Go binary.
+call `go` instead of `go1.8.7` to build our Go binary.
 Therefore it would be very convenient if we can use the executable `go1.8.7` as `go`
 for a specific directory/project.
 This is where [**direnv**](https://github.com/direnv/direnv) comes into play.
@@ -79,26 +79,68 @@ func main() {
 EOL
 ```
 
+In order to enable **direnv** in our project directory, we need to setup
+the `.envrc` file.
+This can be done by doing
 
-
-Clean up
 ```sh
-rm -rf  "${GOPATH}/src/github.com/user/hello"
+$ direnv edit .
 ```
 
-export GOROOT=/Users/nzk190629a/sdk/go1.10.8
-PATH_add /Users/nzk190629a/sdk/go1.10.8/bin
-
-compile
-
-https://github.com/ericchiang/pup
+inside the root directory of our project.
+The content of `.envrc` file should be:
 
 ```
-curl -s https://godoc.org/golang.org/dl | pup 'body > div.container > table > tbody > tr > td:nth-child(1) > a text{}'
+export GOROOT="$(go1.8.7 env GOROOT)"
+PATH_add "$(go1.8.7 env GOROOT)/bin"
 ```
 
+In the first line, we point `GOROOT` to the version that we want to work with.
+Then we add the Go 1.8.7 compiler into `PATH` so that it will be found before the
+default one.
+Once the setup is done, running `go version` will give us the older version.
 
-https://dave.cheney.net/2017/06/20/how-to-find-out-which-go-version-built-your-binary
+```sh
+$ go version
+go version go1.8.7 linux/amd64
+```
 
+We can then build the `main.go` using
 
-balance simlicity and usability
+```
+$ go build
+$ gdb ./hello
+...
+(gdb) p 'runtime.buildVersion'
+$1 = 0x4a5208 "go1.8.7"
+```
+
+The above also shows how to check the which version of Go is used to build
+the `hello` binary as described in [this post](https://dave.cheney.net/2017/06/20/how-to-find-out-which-go-version-built-your-binary).
+
+---
+
+That's all for the demo. Hope you find this post useful.
+Personally I think that this approach has a good balance between simplicity and usability.
+One other thing that I often find useful in tools like `pyenv` is the `pyenv install --list` subcommand
+which shows the available versions that can be installed with `pyenv`.
+Of course the approach above does not have this feature. One hack we can use
+to list all available versions on terminal is by using the [`pup`](https://github.com/ericchiang/pup) command
+with `curl`:
+
+```
+$ curl -s https://godoc.org/golang.org/dl | pup 'body > div.container > table > tbody > tr > td:nth-child(1) > a text{}'
+
+go1.10
+go1.10.1
+go1.10.2
+go1.10.3
+go1.10.4
+...
+```
+
+It's not pretty but it does the trick 💪.
+
+#### Found a typo?
+
+Thank you for reading! Found a typo? See something that could be improved or anything else that should be updated on this blog post? Thanks to [this project](https://github.com/maxime1992/dev.to), you can easily create a pull request on https://github.com/shihanng/dev.to to propose a fix!
