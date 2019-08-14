@@ -2,6 +2,7 @@
 title: Managing Go Versions with direnv
 published: false
 description: 'How to simply manage Go versions for multiple projects with direnv'
+cover_image: https://images.pexels.com/photos/2332442/pexels-photo-2332442.jpeg
 tags: Go, shell, direnv
 ---
 
