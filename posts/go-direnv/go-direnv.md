@@ -38,6 +38,7 @@ $ go1.8.7 download
 ```
 
 Once the download is complete, we can compile our source code with `v1.8.7` using
+
 ```sh
 $ go1.8.7 version
 go version go1.8.7 darwin/amd64
