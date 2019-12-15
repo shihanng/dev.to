@@ -7,7 +7,7 @@ tags: productivity, showdev, opensource, Go,
 
 If you are using [`git`](https://git-scm.com/) in your project, you probably know what is `.gitignore`. Since I never seem to be able to memorized gitignore's [pattern format](https://git-scm.com/docs/gitignore#_pattern_format) correctly, when I needed to write a gitignore file for a specific project, I'll visit [github/gitignore](https://github.com/github/gitignore) in my web browser, search for gitignore file, open the file, copy its content, then finally paste it into my editor...
 
-![Using github/gitignore](./assets/github-gitignore.gif)
+![Using github/gitignore](./assets/github_gitignore.gif)
 
 As we can imagine, if you need to create gitignore file for multiple programming languages the process becomes very tedious.
 
